@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(252, 219, 252);
+    color: rgb(29, 19, 29);
+    font-family: sans-serif;
+}
+
+.wrapper {
+    width: 900px;
+    margin: 0 auto; /* centers it */
+}
+
+.layout {
+  display: flex;
+  gap: 2rem;          /* space between photo + content */
+  align-items: flex-start;
+}
+
+.photo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.photo img {
+  max-width: 200px;
+  border-radius: 8px; /* optional but cute */
+}
+
+.content {
+    flex: 1;
+}
+
+h1{
+    text-align: center;
+    padding: 5px;
+}
