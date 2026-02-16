@@ -9,6 +9,12 @@ body{
     margin: 0 auto; /* centers it */
 }
 
+.welcome {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+} 
+
 .layout {
   display: flex;
   gap: 2rem;          /* space between photo + content */
@@ -33,4 +39,8 @@ body{
 h1{
     text-align: center;
     padding: 5px;
+}
+
+#welcome{
+  text-align: center;
 }
