@@ -98,26 +98,23 @@ setInterval(() => {
 }, 5000)
 
 
-// asssingment 6 - todo list
-[
-    { "text": "Buy milk", "completed": false },
-    { "text": "Walk the dog", "completed": false },
-    { "text": "Do homework", "completed": false }
-]
+// Assignment 6 - todo list
 
 const todoList = document.querySelector('.todo-list') // <ul> element
 const input = document.querySelector('#new-todo') // text input box
-const addBnt = document.querySelector('#add-todo') // add button
+const addBtn = document.querySelector('#add-todo') // add button
 
 const todoParse = JSON.parse(localStorage.getItem('todo-list')) || [] 
 // convert stored string back into array
 // || [] ensures it is always an array
 
 const renderTodos = () => { // arrow function to create and display list items in the DOM
-  
-   todoList.innerHTML = '' // clear existing <li> elements before rebuilding
 
-   todoParse.forEach((todo) => { // loop through each todo object in the array
+  if (!todoList) return // safety check
+
+  todoList.innerHTML = '' // clear existing <li> elements before rebuilding
+
+  todoParse.forEach((todo) => { // loop through each todo object in the array
     const li = document.createElement('li') // create new <li> element
     li.textContent = todo.text // set text from todo object
     li.classList.add('todo') // required class for assignment
@@ -125,20 +122,60 @@ const renderTodos = () => { // arrow function to create and display list items i
   })
 }
 
-  renderTodos()
+renderTodos()
 
-addBnt.addEventListener('click', () => {
+// only add the event listener if the button exists
+if (addBtn) {
+  addBtn.addEventListener('click', () => {
 
-  const text = input.value.trim() //get input
+    const text = input.value.trim() // get input
 
-  if(!text) return //prevent empty
-      
-  todoParse.push({ text: text, completed: false }) //creat javascript object ({property name, value}) add to array
-  
-  localStorage.setItem('todo-list', JSON.stringify(todoParse)) //convert array to string save to localStorage
+    if (!text) return // prevent empty
 
-  input.value = ' ' //clearn input
+    todoParse.push({ text: text, completed: false }) // create object and add to array
+    
+    localStorage.setItem('todo-list', JSON.stringify(todoParse)) // save to localStorage
 
-  renderTodos() //rebuild list
-})
+    input.value = '' // clear input
 
+    renderTodos() // rebuild list
+  })
+}
+
+// Assignment 7
+(async () => {
+
+   const pokemonCtr = document.querySelector('.pokemon-ctr') 
+   // Connect to the div in the HTML.
+   // Find the element with class "pokemon-ctr" and store it in pokemonCtr
+   // so I can add the Pokémon image to it later.
+
+   const getRandomPokemon = async () => {
+
+  const url = 'https://pokeapi.co/api/v2/pokemon/' + (Math.floor(Math.random() * 150) + 1)
+   // Generate a random Pokémon ID and attach it to the API URL
+
+   const response = await fetch(url) 
+   // Send a request to the API and pause until the response comes back
+
+   const pokemonObj = await response.json() 
+   // The API returns JSON data, so this converts it into a JavaScript object
+
+   return pokemonObj
+   // Return the Pokémon object so another function can use it
+
+}
+
+const renderPokemon = (pokemonObj) => {
+  const img = document.createElement('img') // make a new <img> element
+  img.src = pokemonObj.sprites.front_default // set image url from the API
+  img.alt = pokemonObj.name // alt text = pokemon name
+  pokemonCtr.append(img) // add img to div 
+
+  return pokemonObj
+}
+
+const pokemonObj = await getRandomPokemon() // get a random pokemon object - calls function stores data in pokemonObj
+renderPokemon(pokemonObj) // send that object to renderPokemon to display the image
+
+})()
