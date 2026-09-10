@@ -1,4 +1,5 @@
 import { BsStars } from "react-icons/bs";
+import StarRating from "./StarRating";  
 
 const videoGames = [
   {
@@ -46,12 +47,13 @@ function Body() {
                 return (
                 <li key={game.name}>
                     <a href={game.link}>{game.name}</a>
+                    
+                   <StarRating />  {/*call react component, creates conponent for ever gamey*/}
                 </li>
                 )
             })}
         </ul>          
-    
-      </div>
+     </div>
 
         <p className="closing">
             Thanks for stopping by! Have fun exploring my GitHub.
