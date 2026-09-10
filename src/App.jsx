@@ -10,7 +10,7 @@ const App = () => {
     {/* GitHub Corner */}
 
 <a
-    href="https://your-url"
+    href="https://courtslack.github.io/"
     className="github-corner"
     aria-label="View source on GitHub"
 >
