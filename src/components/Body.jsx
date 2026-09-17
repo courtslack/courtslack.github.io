@@ -38,10 +38,11 @@ function Body() {
     }, []) // no dependencies - runs once
 
     useEffect(() => {
+      // Check if the games have loaded
       if (game.length > 0) {
         document.title = `${game.length} Favorite Games`
       }
-    },[game])
+    },[game])//runs when games load
 
 
     return (
