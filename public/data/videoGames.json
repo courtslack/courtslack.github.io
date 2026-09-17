@@ -1,0 +1,40 @@
+
+[
+    {
+        "id": 1,
+        "title": "Stardew Valley",
+        "year": 2016,
+        "genre": "Cozy RPG",
+        "developer": "ConcernedApe",
+        "rating": 0,
+        "link": "https://www.stardewvalley.net/"
+    },
+    {
+        "id": 2,
+        "title": "Sims 4",
+        "year": 2014,
+        "genre": "Life Simulation",
+        "developer": "Maxis",
+        "rating": 0,
+        "link": "https://www.ea.com/games/the-sims/the-sims-4"
+    },
+    {
+        "id": 3,
+        "title": "Half-Life",
+        "year": 1998,
+        "genre": "First-Person Shooter",
+        "developer": "Valve",
+        "rating": 0,
+        "link": "https://store.steampowered.com/app/70/HalfLife/"
+    },
+    {
+        "id": 4,
+        "title": "Harvest Moon: Save the Homeland",
+        "year": 2001,
+        "genre": "Farming Simulation",
+        "developer": "Victor Interactive Software",
+        "rating": 0,
+        "link": "https://en.wikipedia.org/wiki/Harvest_Moon:_Save_the_Homeland"
+    }
+]
+

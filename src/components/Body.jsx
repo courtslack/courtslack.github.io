@@ -1,67 +1,90 @@
-import { BsStars } from "react-icons/bs";
-import StarRating from "./StarRating";  
-
-const videoGames = [
-  {
-    name: "Stardew Valley",
-    link: "https://stardewvalleywiki.com/Stardew_Valley_Wiki"
-  },
-  {
-    name: "The Sims 4",
-    link: "https://sims.fandom.com/wiki/The_Sims_4"
-  },
-  {
-    name: "Half-Life",
-    link: "https://half-life.fandom.com/wiki/Half-Life"
-  },
-  {
-    name: "Harvest Moon",
-    link: "https://harvestmoon.fandom.com/wiki/Harvest_Moon:_Save_The_Homeland"
-  },
-  {
-    name: "Resident Evil",
-    link: "https://residentevil.fandom.com/wiki/Resident_Evil_Wiki"
-  }
-]
+import { BsStars } from "react-icons/bs"
+import StarRating from "./StarRating"
+import { useState, useEffect } from "react"
 
 function Body() {
-  return (
-    <div className="main-content">
-      <h3>Hi, I'm Courtney!</h3>
 
-      <p>
-        I'm a student at Fox Valley Technical College. I'm studying both
-        Web Development and Software Development.
-      </p>
+    const [game, setGame] = useState([])
+    const [ isLoading, setIsLoading ] = useState(true)
+    const [error, setError] = useState(null)
 
-      <p>
-        I've been around computers for as long as I can remember. My dad is a
-        programmer, and growing up I loved playing games like Barbie and JumpStart.
-        My love for video games never went away, and they're still one of my
-        favorite hobbies today. Here are some of my favorites:
-      </p>
+    useEffect(() => {
 
-      <div>
-         <ul>
-            {videoGames.map((game) => {
-                return (
-                <li key={game.name}>
-                    <a href={game.link}>{game.name}</a>
-                    
-                   <StarRating />  {/*call react component, creates conponent for ever gamey*/}
-                </li>
-                )
-            })}
-        </ul>          
-     </div>
+         // immediately invoked async function — async function that runs as soon as it is created
+        (async () => {
 
-        <p className="closing">
-            Thanks for stopping by! Have fun exploring my GitHub.
-        <BsStars className="glitter-star" />
-        </p>
+            try {
+                // find data
+                const url = '/data/videoGames.json'
 
-    </div>
-  )
+                // fetch data
+                const response = await fetch(url)
+
+                // convert data to JS
+                const data = await response.json()
+
+                // put data into state
+                setGame(data)
+            }
+            catch (err) {
+                console.log(err)
+            }
+            finally{
+              setIsLoading(false)
+            }
+
+        })()
+
+    }, []) // no dependencies - runs once
+
+    useEffect(() => {
+      if (game.length > 0) {
+        document.title = `${game.length} Favorite Games`
+      }
+    },[game])
+
+
+    return (
+        <div className="main-content">
+
+            <h3>Hi, I'm Courtney!</h3>
+
+            <p>
+                I'm a student at Fox Valley Technical College. I'm studying both
+                Web Development and Software Development.
+            </p>
+
+            <p>
+                I've been around computers for as long as I can remember. My dad is a
+                programmer, and growing up I loved playing games like Barbie and JumpStart.
+                My love for video games never went away, and they're still one of my
+                favorite hobbies today. Here are some of my favorites:
+            </p>
+
+            <div>
+                <ul>
+                    {game.map((game) => {
+                        return (
+                          <li key={game.id}>
+                            <a href={game.link}>{game.title}</a> ({game.year})
+
+                            <p>Genre: {game.genre}</p>
+                            <p>Developer: {game.developer}</p>
+
+                            <StarRating initialRating={game.rating} />
+                        </li>
+                        )
+                    })}
+                </ul>
+            </div>
+
+            <p className="closing">
+                Thanks for stopping by! Have fun exploring my GitHub.
+                <BsStars className="glitter-star" />
+            </p>
+
+        </div>
+    )
 }
 
 export default Body
