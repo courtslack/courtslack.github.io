@@ -3,17 +3,34 @@ import Header from './components/Header.jsx'
 import Nav from './components/Nav.jsx'
 import Body from './components/Body.jsx'
 import Footer from './components/Footer.jsx'
+import ThemeToggle from './components/ThemeToggle.jsx'
+import { useEffect, useState } from 'react'
+import { GiClick } from 'react-icons/gi'
 
 const App = () => {
+
+    //declaring a state variable using the useState hook.
+    const [ theme, setTheme ] = useState(localStorage.getItem("theme") || "light")
+
+
+    useEffect(() => {
+       document.documentElement.setAttribute("data-theme", theme)
+       localStorage.setItem("theme", theme)
+       //Save a box labeled 'theme' containing 'dark'
+    }, [theme])
+
+    
+
   return (
-    <div>
+
+    <div> 
     {/* GitHub Corner */}
 
-<a
-    href="https://github.com/courtslack"
-    className="github-corner"
-    aria-label="View source on GitHub"
->
+    <a
+        href="https://github.com/courtslack"
+        className="github-corner"
+        aria-label="View source on GitHub"
+    >
     <svg
         width="80"
         height="80"
@@ -50,7 +67,11 @@ const App = () => {
       />
 
       <div className="page-layout">
-        <Nav />
+        <Nav
+            theme={theme}
+            setTheme={setTheme}
+        />
+        {/* <Nav currentTheme={theme} changeTheme={setTheme} /> */}
         <Body />
       </div>
 

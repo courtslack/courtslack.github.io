@@ -11,6 +11,14 @@
   font: 18px/145% var(--sans);
 }
 
+/* Dark Mode */
+[data-theme="dark"] {
+  --background-purple: #252235; /* Dark charcoal purple */
+  --outline-purple: #B8A9D9;    /* Dusty lavender */
+  --header-purple: #38334F;     /* Muted dark purple */
+  --text-cream: #F5F0FF;        /* Pale lavender white */
+}
+
 body {
   margin: 0;
   background-color: var(--background-purple);
@@ -71,8 +79,17 @@ body {
   color: var(--text-cream);
 }
 
+/* 
 .main-content p {
-  text-align: left;
+    text-align: left;
+}
+*/
+
+/* Center the Rickroll section */
+.source-code-section {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .main-content a {
@@ -148,4 +165,316 @@ body {
     font-size: 1.5rem;
   }
 
+}
+
+/* code for focus button */
+:focus-visible {
+    outline: 3px solid #D8B7CC;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.theme-toggle {
+  background-color: #D8B7CC;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Shared button styles */
+.theme-toggle {
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.theme-toggle:hover {
+   font-weight: bold;
+}
+
+/* Light mode colors */
+.theme-toggle {
+    background-color: #9F7EFF;
+    color: #252235;
+}
+
+/* Dark mode colors */
+[data-theme="dark"] .theme-toggle {
+    background-color: #D8B7CC;
+    color: #252235;
+}
+
+/* color transition to everything */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Rickroll section */
+.source-code-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Rickroll link */
+.source-code-link {
+    display: inline-block;
+    color: var(--text-cream);
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Mauve outline when hovering */
+.source-code-link:hover {
+    border-color: #D8B7CC;
+    color: #D8B7CC;
+}
+
+.source-code-section p {
+    text-align: center;
+}
+
+.source-code-link:hover {
+    font-weight: bold;
+}
+
+/* Make all buttons bold when hovered */
+button:hover,
+.nav a:hover,
+.footer a:hover,
+.source-code-link:hover {
+    font-weight: bold;
+}
+
+/* Center the Rickroll section */
+.rickroll-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Center paragraphs inside the Rickroll section */
+.main-content .rickroll-container p {
+    text-align: center;
+}
+:root {
+    /* Colors */
+    --background-purple: #cbb3ff;
+    --outline-purple: #9f7eff;
+    --header-purple: #9b9bff;
+    --text-cream: #fffaff;
+
+    /* Text */
+    --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+
+    font: 18px/145% var(--sans);
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --background-purple: #252235; /* Dark charcoal purple */
+    --outline-purple: #B8A9D9;    /* Dusty lavender */
+    --header-purple: #38334F;     /* Muted dark purple */
+    --text-cream: #F5F0FF;        /* Pale lavender white */
+}
+
+/* Body */
+body {
+    margin: 0;
+    background-color: var(--background-purple);
+}
+
+.page-layout {
+    display: flex;
+    gap: 10px;
+    margin: 20px 40px;
+}
+
+/* Header */
+.header {
+    background-color: var(--header-purple);
+    color: var(--text-cream);
+    text-align: center;
+    border: 4px solid var(--outline-purple);
+    padding: 20px;
+    margin: 30px 40px 0 40px;
+}
+
+.header header {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Navigation */
+.nav {
+    width: 150px;
+    background-color: var(--header-purple);
+    border: 4px solid var(--outline-purple);
+}
+
+.nav ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--text-cream);
+    font-size: 1.2rem;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    min-height: 400px;
+    background-color: var(--header-purple);
+    border: 4px solid var(--outline-purple);
+    padding: 30px;
+    color: var(--text-cream);
+}
+
+.main-content a {
+    text-decoration: none;
+    color: var(--text-cream);
+}
+
+.main-content a:hover {
+    color: #ffe6f2;
+}
+
+/* Rickroll Section */
+.rickroll-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.main-content .rickroll-container p {
+    text-align: center;
+}
+
+.source-code-section {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.source-code-link {
+    display: inline-block;
+    color: var(--text-cream);
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--header-purple);
+    color: var(--text-cream);
+    border: 4px solid var(--outline-purple);
+    margin: 20px 40px;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.footer a {
+    color: var(--text-cream);
+    text-decoration: none;
+}
+
+/* Glitter Star */
+.glitter-star {
+    font-size: 1rem;
+    color: #fff0a8;
+    margin-left: 10px;
+    animation: glitter 1s infinite alternate;
+}
+
+@keyframes glitter {
+    0% {
+        opacity: 0.4;
+        transform: scale(0.8) rotate(-5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.3) rotate(5deg);
+    }
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px 15px;
+    background-color: #9F7EFF;
+    color: #252235;
+}
+
+/* Dark Mode Toggle Colors */
+[data-theme="dark"] .theme-toggle {
+    background-color: #D8B7CC;
+    color: #252235;
+}
+
+/* Make Buttons and Links Bold on Hover */
+button:hover,
+.nav a:hover,
+.footer a:hover,
+.source-code-link:hover {
+    font-weight: bold;
+}
+
+/* Keyboard Focus Accessibility */
+:focus-visible {
+    outline: 3px solid #D8B7CC;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Smooth Color Transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Phone Size */
+@media (max-width: 700px) {
+    .page-layout {
+        flex-direction: column;
+    }
+
+    .header header {
+        font-size: 1.5rem;
+    }
 }

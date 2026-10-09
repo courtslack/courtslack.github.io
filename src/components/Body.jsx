@@ -1,6 +1,7 @@
 import { BsStars } from "react-icons/bs"
 import StarRating from "./StarRating"
 import { useState, useEffect } from "react"
+import SourceCodeLink from "./SourceCodeLink"
 
 function Body() {
 
@@ -79,10 +80,14 @@ function Body() {
                 </ul>
             </div>
 
-            <p className="closing">
+                     <p className="closing">
                 Thanks for stopping by! Have fun exploring my GitHub.
                 <BsStars className="glitter-star" />
             </p>
+
+             <div className="rickroll-container">
+                <SourceCodeLink />
+            </div>
 
         </div>
     )
