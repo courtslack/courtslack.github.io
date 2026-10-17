@@ -1,8 +1,11 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useContext } from "react"
+import { ThemeContext } from "../contexts/ThemeContext"
 
-    const ThemeToggle = ({ theme, setTheme }) => {
+const ThemeToggle = (  ) => {    
+//const ThemeToggle = ({ theme, setTheme }) => { // context provides the theme and setTheme
 
-
+    const { theme, setTheme } = useContext(ThemeContext) // gets stuff from context 
+    
     // Create a reference to the button, starting with null
     const focusButton = useRef(null)
 
