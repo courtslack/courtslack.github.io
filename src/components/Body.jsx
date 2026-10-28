@@ -3,6 +3,8 @@ import StarRating from "./StarRating"
 import { useState, useEffect } from "react"
 import SourceCodeLink from "./SourceCodeLink"
 import Toggle from "./Toggle"
+import SailorMoon from "./SailorMoon"
+import Startrek from "./StarTrek"
 
 function Body() {
 
@@ -81,8 +83,10 @@ function Body() {
                 </ul>
             </div>
             <Toggle />
+            <Startrek /> 
+            <SailorMoon /> 
 
-                <p className="closing">
+            <p className="closing">
                 Thanks for stopping by! Have fun exploring my GitHub.
                 <BsStars className="glitter-star" />
             </p>
